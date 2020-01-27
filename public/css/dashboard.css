@@ -1,0 +1,15 @@
+.apply-test{
+    margin-top: 25px;
+}
+
+
+.test{
+    background-color: rgb(236, 236, 236);
+    margin-top: 25px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    color: rgb(0, 34, 109);
+    padding: 15px;
+}

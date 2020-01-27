@@ -1,0 +1,116 @@
+<html>
+    <head>
+      <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous">
+      <link rel="stylesheet" href="css/createtest.css" type="text/css" />
+      <title>Create a test</title>
+    </head>
+    <body>
+        <form method="" action="" >
+        <div class="container center_it" >
+            <div class="alert alert-primary text-center" role="alert">
+                Create a new test!
+              </div>
+            <div class="input-group mt-3 mr-auto ml-auto mb-3 w-25">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">•</span>
+                </div>
+                <input type="text" class="form-control" name="testname" placeholder="Enter test name: " aria-label="testname" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mt-3 mr-auto ml-auto mb-3 w-25">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">•</span>
+                </div>
+                <input type="text" class="form-control" name="proctor" placeholder="Enter proctor code: " aria-label="proctor" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group mt-3 mr-auto ml-auto mb-3 w-25">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">•</span>
+                </div>
+                <input type="number" class="form-control" name="duration" placeholder="Enter duration: " aria-label="duration" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group mt-3 mr-auto ml-auto mb-3 w-25">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">•</span>
+                </div>
+                <input id="sched_start" type="datetime-local" class="form-control" name="sched_start" placeholder="Scheduled start time " aria-label="sched_start" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group mt-3 mr-auto ml-auto mb-3 w-25">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">•</span>
+                </div>
+                <input id="sched_end" type="datetime-local" class="form-control" name="sched_end" placeholder="Scheduled end time " aria-label="sched_end" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mt-3 mr-auto ml-auto mb-3 w-25">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">•</span>
+                </div>
+                <input type="number" class="form-control" name="easy" placeholder="Number of easy questions " aria-label="duration" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mt-3 mr-auto ml-auto mb-3 w-25">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">•</span>
+                </div>
+                <input type="number" class="form-control" name="medium" placeholder="Number of medium questions " aria-label="duration" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mt-3 mr-auto ml-auto mb-3 w-25">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">•</span>
+                </div>
+                <input type="number" class="form-control" name="hard" placeholder="Number of hard questions " aria-label="duration" aria-describedby="basic-addon1">
+              </div>
+              
+
+              <input id="btn" type="button" value="Submit" class="btn btn-success float-right submit_btn" />
+            </div>
+        </form>
+        <script type="text/javascript" >
+            function forwardData() {
+              var sched_start = document.getElementById("sched_start").value;
+              var sched_end = document.getElementById("sched_end").value;
+              var sched_start_ts = Date.parse(sched_start)/1000;
+              var sched_end_ts = Date.parse(sched_end)/1000;
+
+              var post_data = {
+                testname: $('input[name="testname"]').val(),
+                proctor: $('input[name="proctor"]').val(),
+                duration: $('input[name="duration"]').val(),
+                sched_start: sched_start_ts,
+                sched_end: sched_end_ts,
+                easy: $('input[name="easy"]').val(),
+                medium: $('input[name="medium"]').val(),
+                hard: $('input[name="hard"]').val()
+              }
+
+              $.ajax({
+                type: 'POST',
+                url: "http://localhost:3001/test/create",
+                data: post_data,
+                success: function(res) {
+                  console.log(res);
+                  window.location.href="../admin/test/" + res + "/selectquest";
+                },
+                async: true
+              })
+            }
+
+            $("#btn").on('click', function() {
+              forwardData();
+            })
+
+        </script>
+    </body>
+</html>

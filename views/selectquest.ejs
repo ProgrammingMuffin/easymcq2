@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Select questions</title>
+    </head>
+    <body>
+        <div class="testid" >
+            <%= test_id %>
+        </div>
+        <form method="post" action="../../../admin/createpool/test/<%= test_id %>" >
+        <table border="1" >
+            <tr>
+                <th>ID</th>
+                <th>Question</th>
+                <th>Level</th>
+                <th>Choice</th>
+            </tr>
+            <% for(i=0;i < questions.length;i++){ %>
+                <tr>
+                    <td><%= questions[i].quest_id %></td>
+                    <td><%= questions[i].question %></td>
+                    <td><%= questions[i].type %></td>
+                    <td>
+                        <input type="checkbox" name="questions" value="<%= questions[i].quest_id %>" />
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+        <input type="submit" value="submit" />
+        </form>
+    </body>
+</html>

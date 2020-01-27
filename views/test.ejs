@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>Attempting test</title>
+        <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous">
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+        <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+        crossorigin="anonymous"></script>
+        <script 
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+        crossorigin="anonymous"></script>
+        <script src="../libraries/jquerycookie/jquery.cookie.js"
+        type="text/javascript"
+         ></script>
+        <link href="/css/test.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <input type="hidden" id="test_id" value="<%= test_id %>" />
+        <div class="topbar" >
+            <div class="timer" id="timer" >
+            </div>
+        </div>
+        <% for(i=0;i < questions.length;i++) { %>
+            <div class="container mt-5" >
+            <div class="alert alert-info" class="question" role="alert" >
+                <%= i+1 %>) <%= questions[i].question %>
+            </div>
+            <div class="answerarea" >
+                <% questions[i].answers.forEach(answer => { %>
+                    <div class="answer">
+                        <input class="form-check-input" type="radio" name="option<%= i+1 %>" id="inlineRadio1" value="<%= answer.ans_id %>">
+                        <label class="form-check-label" for="inlineRadio1"><%= answer.answer %></label>
+                    </div>    
+                <% }) %>
+
+                <input type="button" id="<%= i+1 %>" name="<%= questions[i].quest_id %>" value="save" />
+
+            </div>
+        </div>
+        <% } %>
+        <a class="submitbtn btn btn-success" id="submitbtn" href="/evaluate/<%= test_id %>" >Submit</a>
+        <script type="text/javascript" >
+            $('input[type="button"]').on('click', function(e){
+                var ans_id = $('input[name="option' + e.target.id + '"]:checked').val();
+                var quest_id = e.target.name;
+                $.ajax({
+                    type: "POST",
+                    async: true,
+                    url: "/save",
+                    data: {
+                        test_id: $('#test_id').val(),
+                        ans_id: ans_id,
+                        quest_id: quest_id
+                    }
+                })
+            });
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                  var c = ca[i];
+                  while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                  }
+                  if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                  }
+                }
+                return "";
+            }
+
+            function sformat(s) {
+                var fm = [
+                    Math.floor(s / 60 / 60) % 24, // HOURS
+                    Math.floor(s / 60) % 60, // MINUTES
+                    s % 60 // SECONDS
+                ];
+                return $.map(fm, function(v, i) { return ((v < 10) ? '0' : '') + v; }).join(':');
+            }
+
+
+            var sertime;
+
+            $.ajax({
+                url: "/fetchsertime/",
+                type: "GET",
+                async: true,
+                success: function (res) {
+                    sertime = parseInt(res);
+                    console.log(sertime);
+                }
+            })
+
+            function countDown() {
+                local = Math.floor((new Date()).getTime() / 1000)
+                //console.log(local - sertime);
+                // $("#timer").html(sertime - local);
+                $("#timer").html(sformat((sertime - local) + ""));
+                if((sertime - local) == 0) {
+                    document.getElementById("submitbtn").click();
+                }
+            }
+            
+            setInterval(function() {
+                countDown();
+            }, 1000);
+
+        </script>
+    </body>
+</html>

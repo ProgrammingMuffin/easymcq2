@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Student Dashboard</title>
+        
+        <link href="/css/dashboard.css" rel="stylesheet" type="text/css" />
+        
+        <link 
+        rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+        crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+        crossorigin="anonymous">
+
+        <script 
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+        crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container" >
+            <div class="apply-test alert alert-warning" role="alert">
+                <div class="text-center" >
+                    Apply for a test
+                    <span>
+                        <a href="../../apply" type="button" class="ml-2 btn btn-info">
+                            Apply For Tests
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="container" >
+            <div class="text-center alert alert-success" role="alert">
+                Tests you applied for
+            </div>
+            <% for(i = 0; i < tests.length; i++) { %>
+                <div class="test" >
+                    Test name: <%= tests[i].name %><br/>
+                    Duration: <%= tests[i].duration %> minutes 
+                    <!-- <a href="../../test/<%= tests[i].test_id %>" type="button" class="ml-2 btn btn-info"> -->
+                    <a href="../../verifyview/<%= tests[i].test_id %>" type="button" class="ml-2 btn btn-info">
+                        Go to test
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Add a question</title>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" 
+        integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" 
+        crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <form method="POST" id="form_addquestion" enctype="multipart/form-data" action="http://localhost:3001/admin/newquest" >
+            <input type="text" name="question" placeholder="Enter Question" />
+            <span>
+                <input type="radio" name="level" value="1" >easy
+                <input type="radio" name="level" value="2" >medium
+                <input type="radio" name="level" value="3" >hard
+            </span>
+            <div id="boxarea" >
+                <input type="radio" id="1" value="1" name="correct" />
+                <input type="text" id="ans1" name="answers[]" placeholder="Answer 1" />
+                <br/>
+            </div>
+            <button type="button" id="addbox" onclick="createBox()" >+</button>
+            <input type="submit" value="Add" />
+        </form>
+    <script type="text/javascript">
+    var count = 1;
+    function createBox(){
+        count++;
+        var code2 = '<input type="radio" id="' + count + '" value="' + count + '" name="correct" />'
+        var code1 = '<input type="text" id="ans' + count + '" name="answers[]" placeholder="Answer ' + count + '" /><br/>';
+        // var code3 = '<input type="file" id="img' + count + '" name="' + count + '" /><br/>';
+        $("#boxarea").append(code2);
+        $("#boxarea").append(code1);
+    }
+    $("#form_addquestion").ajaxForm({
+        url: 'http://localhost:3001/admin/newquest', 
+        type: 'post',
+        success: onAddQuestion
+    })
+    function onAddQuestion(res){
+        console.log(res);
+    }
+    </script>
+    </body>
+</html>
