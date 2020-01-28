@@ -51,7 +51,7 @@ CREATE TABLE `Answer` (
   `answer` varchar(1500) COLLATE utf8mb4_general_ci NOT NULL,
   `correct` tinyint(1) NOT NULL,
   PRIMARY KEY (`ans_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=583 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=593 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `Answer` (
 
 LOCK TABLES `Answer` WRITE;
 /*!40000 ALTER TABLE `Answer` DISABLE KEYS */;
-INSERT INTO `Answer` VALUES (532,'Ramesh',0),(533,'Suhas',0),(534,'Ramnath Kovind',1),(535,'Trump',0),(536,'Venkaiah Naidu',0),(537,'Mark Zuckerberg',1),(538,'Deepak R',0),(539,'Ferrari',0),(540,'Maruti Suzuki',1),(541,'Lamborghini',0),(542,'100',1),(543,'20',0),(544,'1 million',0),(545,'Proxima Centauri',0),(546,'The Sun',1),(547,'Mars',0),(548,'Jupiter',0),(549,'tan(x)',0),(550,'-cos(x)',1),(551,'sec^2(x)',0),(552,'Floyd\'s ',0),(553,'Warshall\'s',0),(554,'Binary Search',0),(555,'Dijkstra\'s',1),(556,'Linus Torvalds',1),(557,'Deepak R',0),(558,'Bill Gates',0),(559,'Dipu Saha',0),(560,'3x10^8m/s',1),(561,'9x10^8m/s',0),(562,'3x10^6m/s',0),(563,'Polymorphism',0),(564,'Inheritance',1),(565,'Overloading',0),(566,'Downloading',0),(567,'Builder method',1),(568,'factory method',0),(569,'None of the above',0),(570,'observer pattern',0),(571,'regular expressions',0),(572,'Simon Gilchrist',0),(573,'Dennis M Ritchie',1),(574,'Harry Potter',0),(575,'11',0),(576,'3',0),(577,'1',0),(578,'None of the above',1),(579,'11',0),(580,'1',0),(581,'None of the above',1),(582,'3',0);
+INSERT INTO `Answer` VALUES (532,'Ramesh',0),(533,'Suhas',0),(534,'Ramnath Kovind',1),(535,'Trump',0),(536,'Venkaiah Naidu',0),(537,'Mark Zuckerberg',1),(538,'Deepak R',0),(539,'Ferrari',0),(540,'Maruti Suzuki',1),(541,'Lamborghini',0),(542,'100',1),(543,'20',0),(544,'1 million',0),(545,'Proxima Centauri',0),(546,'The Sun',1),(547,'Mars',0),(548,'Jupiter',0),(549,'tan(x)',0),(550,'-cos(x)',1),(551,'sec^2(x)',0),(552,'Floyd\'s ',0),(553,'Warshall\'s',0),(554,'Binary Search',0),(555,'Dijkstra\'s',1),(556,'Linus Torvalds',1),(557,'Deepak R',0),(558,'Bill Gates',0),(559,'Dipu Saha',0),(560,'3x10^8m/s',1),(561,'9x10^8m/s',0),(562,'3x10^6m/s',0),(563,'Polymorphism',0),(564,'Inheritance',1),(565,'Overloading',0),(566,'Downloading',0),(567,'Builder method',1),(568,'factory method',0),(569,'None of the above',0),(570,'observer pattern',0),(571,'regular expressions',0),(572,'Simon Gilchrist',0),(573,'Dennis M Ritchie',1),(574,'Harry Potter',0),(575,'11',0),(576,'3',0),(577,'1',0),(578,'None of the above',1),(579,'11',0),(580,'1',0),(581,'None of the above',1),(582,'3',0),(583,'123',0),(584,'323',1),(585,'45',0),(586,'123',0),(587,'323',1),(588,'45',0),(589,'123',0),(590,'789',0),(591,'456',0),(592,'678',1);
 /*!40000 ALTER TABLE `Answer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,7 +77,7 @@ CREATE TABLE `Question` (
   `type` tinyint(4) NOT NULL,
   PRIMARY KEY (`quest_id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=184 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=187 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,7 +86,7 @@ CREATE TABLE `Question` (
 
 LOCK TABLES `Question` WRITE;
 /*!40000 ALTER TABLE `Question` DISABLE KEYS */;
-INSERT INTO `Question` VALUES (170,'Who is the president of India?',1),(171,'Who is the founder of facebook?',1),(172,'Car company that owns Alto?',1),(173,'if 1 apple costs 10 rupees, 10 apples cost?',2),(174,'Which is the nearest star?',1),(175,'Integral of sin(x)?',3),(176,'Google maps uses which algorithm?',2),(177,'Who created Linux?',2),(178,'velocity of light in vacuum?',3),(179,'Property of inheriting properties from parents in OOPs?',2),(180,'Which one of the following is an Anti-pattern?',3),(181,'Who is the creator of C?',2),(182,'what is 1+1?',1),(183,'what is 1+1?',1);
+INSERT INTO `Question` VALUES (170,'Who is the president of India?',1),(171,'Who is the founder of facebook?',1),(172,'Car company that owns Alto?',1),(173,'if 1 apple costs 10 rupees, 10 apples cost?',2),(174,'Which is the nearest star?',1),(175,'Integral of sin(x)?',3),(176,'Google maps uses which algorithm?',2),(177,'Who created Linux?',2),(178,'velocity of light in vacuum?',3),(179,'Property of inheriting properties from parents in OOPs?',2),(180,'Which one of the following is an Anti-pattern?',3),(181,'Who is the creator of C?',2),(182,'what is 1+1?',1),(183,'what is 1+1?',1),(184,'test',1),(185,'test',1),(186,'hihihihihhihi',2);
 /*!40000 ALTER TABLE `Question` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +113,7 @@ CREATE TABLE `QuestionLibrary` (
 
 LOCK TABLES `QuestionLibrary` WRITE;
 /*!40000 ALTER TABLE `QuestionLibrary` DISABLE KEYS */;
-INSERT INTO `QuestionLibrary` VALUES (170,532),(170,533),(170,534),(170,535),(171,536),(171,537),(171,538),(172,539),(172,540),(172,541),(173,542),(173,543),(173,544),(174,545),(174,546),(174,547),(174,548),(175,549),(175,550),(175,551),(176,552),(176,553),(176,554),(176,555),(177,556),(177,557),(177,558),(177,559),(178,560),(178,561),(178,562),(179,563),(179,564),(179,565),(179,566),(180,567),(180,568),(180,569),(180,570),(180,571),(181,572),(181,573),(181,574),(182,575),(182,576),(182,577),(182,578),(183,579),(183,580),(183,581),(183,582);
+INSERT INTO `QuestionLibrary` VALUES (170,532),(170,533),(170,534),(170,535),(171,536),(171,537),(171,538),(172,539),(172,540),(172,541),(173,542),(173,543),(173,544),(174,545),(174,546),(174,547),(174,548),(175,549),(175,550),(175,551),(176,552),(176,553),(176,554),(176,555),(177,556),(177,557),(177,558),(177,559),(178,560),(178,561),(178,562),(179,563),(179,564),(179,565),(179,566),(180,567),(180,568),(180,569),(180,570),(180,571),(181,572),(181,573),(181,574),(182,575),(182,576),(182,577),(182,578),(183,579),(183,580),(183,581),(183,582),(184,583),(184,584),(184,585),(185,586),(185,587),(185,588),(186,589),(186,590),(186,591),(186,592);
 /*!40000 ALTER TABLE `QuestionLibrary` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +140,7 @@ CREATE TABLE `QuestionPool` (
 
 LOCK TABLES `QuestionPool` WRITE;
 /*!40000 ALTER TABLE `QuestionPool` DISABLE KEYS */;
-INSERT INTO `QuestionPool` VALUES (17,170),(27,170),(17,171),(27,171),(17,172),(27,172),(17,173),(17,174),(17,175),(17,176),(27,176),(17,177),(27,177),(17,178),(27,178),(17,179),(17,180),(27,180),(17,181),(17,182),(27,182),(17,183);
+INSERT INTO `QuestionPool` VALUES (17,170),(27,170),(29,170),(17,171),(27,171),(17,172),(27,172),(29,172),(30,172),(17,173),(30,173),(17,174),(29,174),(30,174),(17,175),(29,175),(17,176),(27,176),(17,177),(27,177),(29,177),(17,178),(27,178),(17,179),(29,179),(17,180),(27,180),(29,180),(17,181),(29,181),(17,182),(27,182),(29,182),(17,183);
 /*!40000 ALTER TABLE `QuestionPool` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,6 +168,7 @@ CREATE TABLE `Scoreboard` (
 
 LOCK TABLES `Scoreboard` WRITE;
 /*!40000 ALTER TABLE `Scoreboard` DISABLE KEYS */;
+INSERT INTO `Scoreboard` VALUES (4,17,1);
 /*!40000 ALTER TABLE `Scoreboard` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,7 +190,7 @@ CREATE TABLE `Test` (
   `medium` smallint(6) DEFAULT '0',
   `hard` smallint(6) DEFAULT '0',
   PRIMARY KEY (`test_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,7 +199,7 @@ CREATE TABLE `Test` (
 
 LOCK TABLES `Test` WRITE;
 /*!40000 ALTER TABLE `Test` DISABLE KEYS */;
-INSERT INTO `Test` VALUES (17,'REVA Practo Test','123123',60,1580077320,1580293440,4,3,2),(18,'BMSIT Practo Test','123123',180,885505860,1590231240,5,3,2),(19,'BMSIT Practo Test','123123',180,885505860,1590231240,5,3,2),(20,'BMSIT Practo Test','123123',180,885505860,1590231240,4,3,2),(21,'BMSIT Practo Test','123123',180,885505860,1590231240,4,3,2),(22,'dasd','adsad',232,-9223372036854775808,-9223372036854775808,222,222,222),(23,'dasd','adsad',232,-9223372036854775808,-9223372036854775808,222,222,222),(24,'dasd','adsad',232,-9223372036854775808,-9223372036854775808,222,222,222),(25,'dasdsad','asdasdas',123,-9223372036854775808,-9223372036854775808,0,0,0),(26,'dasdsad','asdasdas',123,-9223372036854775808,-9223372036854775808,23,23,23),(27,'Dipu','12312',232,-9223372036854775808,-9223372036854775808,52,51,56);
+INSERT INTO `Test` VALUES (17,'REVA Practo Test','123123',60,1580077320,1580293440,4,3,2),(18,'BMSIT Practo Test','123123',180,885505860,1590231240,5,3,2),(19,'BMSIT Practo Test','123123',180,885505860,1590231240,5,3,2),(20,'BMSIT Practo Test','123123',180,885505860,1590231240,4,3,2),(21,'BMSIT Practo Test','123123',180,885505860,1590231240,4,3,2),(22,'dasd','adsad',232,-9223372036854775808,-9223372036854775808,222,222,222),(23,'dasd','adsad',232,-9223372036854775808,-9223372036854775808,222,222,222),(24,'dasd','adsad',232,-9223372036854775808,-9223372036854775808,222,222,222),(25,'dasdsad','asdasdas',123,-9223372036854775808,-9223372036854775808,0,0,0),(26,'dasdsad','asdasdas',123,-9223372036854775808,-9223372036854775808,23,23,23),(27,'Dipu','12312',232,-9223372036854775808,-9223372036854775808,52,51,56),(28,'','',0,-9223372036854775808,-9223372036854775808,0,0,0),(29,'IIT','iit2020',180,-9223372036854775808,-9223372036854775808,4,3,2),(30,'','',0,-9223372036854775808,-9223372036854775808,0,0,0);
 /*!40000 ALTER TABLE `Test` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -288,7 +289,7 @@ CREATE TABLE `UserAnswers` (
 
 LOCK TABLES `UserAnswers` WRITE;
 /*!40000 ALTER TABLE `UserAnswers` DISABLE KEYS */;
-INSERT INTO `UserAnswers` VALUES (4,17,171,538),(4,17,174,546),(4,17,182,578);
+INSERT INTO `UserAnswers` VALUES (4,17,171,538),(4,17,174,547),(4,17,182,578);
 /*!40000 ALTER TABLE `UserAnswers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -313,7 +314,7 @@ CREATE TABLE `UserQuestions` (
 
 LOCK TABLES `UserQuestions` WRITE;
 /*!40000 ALTER TABLE `UserQuestions` DISABLE KEYS */;
-INSERT INTO `UserQuestions` VALUES (17,4,171),(17,4,174),(17,4,175),(17,4,176),(17,4,177),(17,4,179),(17,4,180),(17,4,182),(17,4,183);
+INSERT INTO `UserQuestions` VALUES (17,4,171),(17,4,174),(17,4,175),(17,4,176),(17,4,177),(17,4,179),(17,4,180),(17,4,182),(17,4,183),(18,4,170),(18,4,171),(18,4,172),(18,4,173),(18,4,175),(18,4,177),(18,4,179),(18,4,180);
 /*!40000 ALTER TABLE `UserQuestions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -326,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-01-27 23:29:49
+-- Dump completed on 2020-01-28  6:25:52
