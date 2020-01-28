@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
     <head>
         <title>Select questions</title>
     </head>
@@ -28,4 +28,57 @@
         <input type="submit" value="submit" />
         </form>
     </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Select Questions-easymcq</title>
+	<link rel="stylesheet" type="text/css" href="/css/selectquestStyle.css">
+</head>
+<body>
+	<div class="logo_company_left" align="center">
+				<div><p class="main_text">E a s y &nbsp; M c q . . . ! !</p></div>
+	</div>
+
+	<div class="logo_company_left" align="center">
+				<div><p class="sub_text">Select Questions</p></div>
+	</div>
+
+		<div class="testid" align="center" >
+            <%= test_id %>
+        </div>
+
+        <br>
+
+
+	<div class="container" align="center">
+			<form method="post" action="../../../admin/createpool/test/<%= test_id %>" >
+			        <table>
+			            <tr>
+			                <th>ID</th>
+			                <th>Question</th>
+			                <th>Level</th>
+			                <th>Choice</th>
+			            </tr>
+			            <% for(i=0;i < questions.length;i++){ %>
+			                <tr>
+			                    <td><%= questions[i].quest_id %></td>
+			                    <td><%= questions[i].question %></td>
+			                    <td><%= questions[i].type %></td>
+			                    <td>
+			                        <input type="checkbox" name="questions" value="<%= questions[i].quest_id %>" />
+			                    </td>
+			                </tr>
+			            <% } %>
+			        </table>
+			        <input class="redirect" type="submit" value="submit" />
+			</form>	
+	</div>
+
+	<footer class="empty-footer">
+		
+	</footer>
+
+</body>
 </html>

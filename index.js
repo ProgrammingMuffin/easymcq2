@@ -43,6 +43,7 @@ app.use(bodyParser.json()); //this is required to parse HTTP POST Body
 app.use(bodyParser.urlencoded({extended: true}));
 app.use("/", express.static('public')); //serve static files present in the public directory.
 app.use("/css", express.static('public/css')); //serve static files present in the public directory.
+app.use("/images", express.static('public/images'));
 app.use(multer({dest: './uploads/images'}).any());
 
 

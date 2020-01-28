@@ -9,9 +9,13 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" 
         integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" 
         crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     </head>
     <body>
-        <form method="POST" id="form_addquestion" enctype="multipart/form-data" action="http://localhost:3001/admin/newquest" >
+        <div class="container mt-5" >
+            <h1>Insert a new question</h1><br/>
+        <form method="POST" id="form_addquestion" enctype="multipart/form-data" action="/admin/newquest" >
             <input type="text" name="question" placeholder="Enter Question" />
             <span>
                 <input type="radio" name="level" value="1" >easy
@@ -26,7 +30,9 @@
             <button type="button" id="addbox" onclick="createBox()" >+</button>
             <input type="submit" value="Add" />
         </form>
-    <script type="text/javascript">
+        <a href="/admin/dashboard" class="btn btn-primary" >Admin Dashboard</a>
+    </div>
+        <script type="text/javascript">
     var count = 1;
     function createBox(){
         count++;
@@ -42,7 +48,7 @@
         success: onAddQuestion
     })
     function onAddQuestion(res){
-        console.log(res);
+        window.location.reload();
     }
     </script>
     </body>
