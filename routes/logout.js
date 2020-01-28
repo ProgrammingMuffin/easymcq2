@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
     res.clearCookie("jwttoken");
     res.clearCookie("admintoken");
-    res.send("logged out");
+    res.redirect("/");
 })
 
 module.exports = router;

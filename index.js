@@ -25,6 +25,7 @@ const verifyview = require('./routes/verifyview');
 const verify = require('./routes/verify');
 const generatequests = require('./routes/generatequests');
 const save = require('./routes/save');
+const getresults = require('./routes/getresults');
 const evaluate = require('./routes/evaluate');
 const fetchsertime = require('./routes/fetchsertime');
 const multer = require('multer'); // for file upload handling
@@ -70,6 +71,7 @@ app.use("/test", test);
 app.use("/test", createtest);
 app.use("/verifyview", verifyview);
 app.use("/verify", verify);
+app.use("/results", getresults);
 app.use("/save", save);
 app.use("/fetchsertime", fetchsertime);
 app.use("/user", loginuser);

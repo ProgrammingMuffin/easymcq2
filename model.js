@@ -45,7 +45,8 @@ mTestInvite.belongsTo(mTest, {as: 'Test', foreignKey: 'test_id'});
 mQuestionPool.belongsTo(mQuestion, {as: 'Question', foreignKey: 'quest_id'});
 mUserAnswers.belongsTo(mQuestion, {as: 'Question', foreignKey: 'quest_id'});
 mUserAnswers.belongsTo(mAnswer, {as: 'Answer', foreignKey: 'ans_id'});
-
+mScoreboard.belongsTo(mTest, {as: 'Test', foreignKey: 'test_id'});
+mScoreboard.belongsTo(mUser, {as: 'User', foreignKey: 'user_id'});
 
 module.exports.Answer = mAnswer;
 module.exports.AnswerImage = mAnswerImage;
