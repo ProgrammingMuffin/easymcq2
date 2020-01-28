@@ -83,7 +83,7 @@ const generateUserQuests = (res, test_id, user_id) => {
             quest_list.forEach(qid => {
                 UserQuestions.create({test_id: test_id, user_id: user_id, quest_id: qid})
                 .then(() => {
-                    res.redirect("../../test/" + test_id + "/1");
+                    res.redirect("../../test/" + test_id + "");
                 })
             })
         });

@@ -13,7 +13,7 @@ const createQuestionPool = (res, test_id, quest_list) => {
         promises.push(QuestionPool.create({test_id: test_id, quest_id: parseInt(quest_id)}));
     });
     Promise.all(promises).then(() => {
-        res.send("Added all questions to questionpool");
+        res.send("Added all questions to questionpool<br/><a href='/admin/dashboard/' >Go to Dashboard</a>");
     })
 }
 

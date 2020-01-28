@@ -49,6 +49,9 @@ app.use(multer({dest: './uploads/images'}).any());
 
 app.set("view engine", "ejs");
 
+app.get("/", (req, res) => {
+    res.render("homepage");
+})
 
 app.use("/login", adminloginview);
 app.use("/login", userloginview);
